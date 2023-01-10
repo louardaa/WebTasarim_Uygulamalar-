@@ -1,0 +1,53 @@
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+<body style="background-color:purple; color:white">
+  <div class="pencere">
+      <div class="ust">
+      
+<marquee behavior="scroll" direction="left" scrollamount="10">Arda Anıl Şahin</marquee>
+
+      </div>
+ <div class="gonder"> 
+        <input id="mesaj" type="text" placeholder="Metin">
+        <input id="button" type="button" value="Metni Aktar" onclick="mesajGonder()">
+      </div>
+      <div class="icerik" id="icerik">
+      </div>
+     
+    </div>
+</body>
+</html>
+
+<script>
+function mesajGonder(){
+  var metin = document.getElementById("mesaj").value;
+  var yeniElement = document.createElement("p");
+  var icerik = document.createTextNode(metin);
+  yeniElement.appendChild(icerik);
+  var icerik = document.getElementById("icerik");
+  icerik.appendChild(yeniElement);
+  
+  document.getElementById("mesaj").value = "";
+  document.getElementById("icerik").scrollTop += 9999; /* yazdıkça scrollda gelsin */
+  
+}
+/* enter tuşu ile gönderme */
+document.getElementById("mesaj").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById("button").click();
+        document.getElementById("icerik").scrollTop += 9999; /* yazdıkça scroolda gelsin */
+    }
+});
+
+/* Zinciri Kırma 195.Gün İzmirdeyiz Çalışmaya Devam */
+</script>
